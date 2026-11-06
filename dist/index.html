@@ -1,0 +1,1164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#050914">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Maxabel Forever is coming soon: a quiet place for the memories we keep close.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://maxabelforever.nl/">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Maxabel Forever">
+  <meta property="og:title" content="Maxabel Forever - Coming soon">
+  <meta property="og:description" content="A quiet place for the memories we keep close.">
+  <meta property="og:url" content="https://maxabelforever.nl/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Maxabel Forever - Coming soon">
+  <meta name="twitter:description" content="A quiet place for the memories we keep close.">
+  <title>Maxabel Forever - Coming soon</title>
+  <script>
+    document.documentElement.classList.add("js");
+  </script>
+  <style>
+    :root {
+      color-scheme: dark;
+      --night-950: #03060f;
+      --night-900: #050914;
+      --night-800: #091224;
+      --night-700: #111c34;
+      --cream: #f3e7d4;
+      --cream-soft: #d8c9b9;
+      --cream-muted: #aa9d9b;
+      --rose: #e2a6ad;
+      --rose-bright: #ffd1d1;
+      --lavender: #b8a9e8;
+      --lavender-bright: #ddd3ff;
+      --gold: #efd0a2;
+      --line: rgba(239, 208, 162, 0.2);
+      --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+      --sans: "Avenir Next", "Segoe UI Variable", "Segoe UI", Helvetica, Arial, sans-serif;
+      --pointer-x: 0px;
+      --pointer-y: 0px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-width: 320px;
+      min-height: 100%;
+      background: var(--night-950);
+    }
+
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      min-height: 100svh;
+      margin: 0;
+      overflow: hidden;
+      overscroll-behavior: none;
+      background: var(--night-950);
+      color: var(--cream);
+      font-family: var(--sans);
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 4px;
+    }
+
+    ::selection {
+      color: var(--night-950);
+      background: var(--rose-bright);
+    }
+
+    .skip-link {
+      position: fixed;
+      left: 1rem;
+      top: 1rem;
+      z-index: 30;
+      padding: 0.72rem 0.9rem;
+      border-radius: 4px;
+      background: var(--cream);
+      color: var(--night-950);
+      font-size: 0.86rem;
+      font-weight: 700;
+      text-decoration: none;
+      transform: translateY(-180%);
+      transition: transform 160ms ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .experience {
+      position: relative;
+      isolation: isolate;
+      width: 100%;
+      min-height: 100vh;
+      min-height: 100svh;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 71% 45%, rgba(112, 76, 139, 0.16), transparent 32%),
+        radial-gradient(ellipse at 27% 75%, rgba(36, 92, 107, 0.1), transparent 34%),
+        linear-gradient(145deg, var(--night-900) 0%, var(--night-950) 48%, #070b17 100%);
+    }
+
+    .experience::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 7;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(3, 6, 15, 0.08) 48%, rgba(3, 6, 15, 0.58) 100%),
+        radial-gradient(ellipse at center, transparent 45%, rgba(2, 4, 10, 0.55) 100%);
+    }
+
+    .experience::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 8;
+      pointer-events: none;
+      opacity: 0.18;
+      background-image:
+        repeating-linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.012) 0,
+          rgba(255, 255, 255, 0.012) 1px,
+          transparent 1px,
+          transparent 4px
+        );
+      mix-blend-mode: soft-light;
+    }
+
+    .ambient {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .star-field {
+      position: absolute;
+      inset: -5%;
+      transform: translate3d(
+        calc(var(--pointer-x) * var(--parallax, 0)),
+        calc(var(--pointer-y) * var(--parallax, 0)),
+        0
+      );
+      transition: transform 700ms cubic-bezier(0.2, 0.75, 0.25, 1);
+      will-change: transform;
+    }
+
+    .star-field::before,
+    .star-field::after {
+      content: "";
+      position: absolute;
+      inset: -15%;
+      background-repeat: no-repeat;
+    }
+
+    .star-field--far {
+      --parallax: -0.12;
+      opacity: 0.72;
+    }
+
+    .star-field--far::before {
+      background-image:
+        radial-gradient(circle at 4% 18%, rgba(243, 231, 212, 0.7) 0 1px, transparent 1.4px),
+        radial-gradient(circle at 9% 67%, rgba(184, 169, 232, 0.48) 0 0.8px, transparent 1.3px),
+        radial-gradient(circle at 15% 33%, rgba(243, 231, 212, 0.58) 0 1px, transparent 1.5px),
+        radial-gradient(circle at 21% 82%, rgba(226, 166, 173, 0.5) 0 0.8px, transparent 1.3px),
+        radial-gradient(circle at 29% 12%, rgba(243, 231, 212, 0.62) 0 1px, transparent 1.4px),
+        radial-gradient(circle at 35% 48%, rgba(184, 169, 232, 0.48) 0 0.8px, transparent 1.3px),
+        radial-gradient(circle at 42% 74%, rgba(243, 231, 212, 0.54) 0 1px, transparent 1.4px),
+        radial-gradient(circle at 51% 21%, rgba(226, 166, 173, 0.48) 0 0.8px, transparent 1.3px),
+        radial-gradient(circle at 58% 58%, rgba(243, 231, 212, 0.66) 0 1.1px, transparent 1.6px),
+        radial-gradient(circle at 67% 37%, rgba(184, 169, 232, 0.54) 0 0.8px, transparent 1.3px),
+        radial-gradient(circle at 74% 88%, rgba(243, 231, 212, 0.62) 0 1px, transparent 1.4px),
+        radial-gradient(circle at 82% 16%, rgba(226, 166, 173, 0.46) 0 0.8px, transparent 1.3px),
+        radial-gradient(circle at 89% 62%, rgba(243, 231, 212, 0.62) 0 1px, transparent 1.4px),
+        radial-gradient(circle at 96% 36%, rgba(184, 169, 232, 0.48) 0 0.8px, transparent 1.3px);
+      animation: starDriftFar 34s linear infinite;
+    }
+
+    .star-field--far::after {
+      opacity: 0.55;
+      transform: translate(7%, 4%);
+      background-image:
+        radial-gradient(circle at 7% 43%, rgba(243, 231, 212, 0.38) 0 0.7px, transparent 1.2px),
+        radial-gradient(circle at 18% 9%, rgba(226, 166, 173, 0.34) 0 0.7px, transparent 1.2px),
+        radial-gradient(circle at 31% 62%, rgba(243, 231, 212, 0.38) 0 0.7px, transparent 1.2px),
+        radial-gradient(circle at 47% 34%, rgba(184, 169, 232, 0.34) 0 0.7px, transparent 1.2px),
+        radial-gradient(circle at 63% 8%, rgba(243, 231, 212, 0.38) 0 0.7px, transparent 1.2px),
+        radial-gradient(circle at 76% 51%, rgba(226, 166, 173, 0.34) 0 0.7px, transparent 1.2px),
+        radial-gradient(circle at 92% 79%, rgba(243, 231, 212, 0.38) 0 0.7px, transparent 1.2px);
+      animation: starDriftFarTwo 46s linear infinite;
+    }
+
+    .star-field--mid {
+      --parallax: 0.24;
+      opacity: 0.86;
+    }
+
+    .star-field--mid::before {
+      background-image:
+        radial-gradient(circle at 2% 53%, rgba(255, 248, 235, 0.84) 0 1.3px, transparent 2px),
+        radial-gradient(circle at 12% 22%, rgba(221, 211, 255, 0.72) 0 1px, transparent 1.7px),
+        radial-gradient(circle at 24% 91%, rgba(255, 209, 209, 0.7) 0 1.2px, transparent 1.8px),
+        radial-gradient(circle at 36% 28%, rgba(255, 248, 235, 0.64) 0 1px, transparent 1.6px),
+        radial-gradient(circle at 48% 64%, rgba(221, 211, 255, 0.68) 0 1.1px, transparent 1.8px),
+        radial-gradient(circle at 61% 18%, rgba(255, 248, 235, 0.88) 0 1.5px, transparent 2.2px),
+        radial-gradient(circle at 72% 72%, rgba(255, 209, 209, 0.62) 0 1px, transparent 1.7px),
+        radial-gradient(circle at 84% 41%, rgba(255, 248, 235, 0.76) 0 1.2px, transparent 1.9px),
+        radial-gradient(circle at 95% 85%, rgba(221, 211, 255, 0.62) 0 1px, transparent 1.7px);
+      animation: starDriftMid 24s ease-in-out infinite alternate;
+    }
+
+    .star-field--mid::after {
+      opacity: 0.62;
+      transform: translate(-6%, 7%);
+      background-image:
+        radial-gradient(circle at 6% 29%, rgba(255, 248, 235, 0.64) 0 1px, transparent 1.6px),
+        radial-gradient(circle at 17% 76%, rgba(221, 211, 255, 0.54) 0 0.9px, transparent 1.5px),
+        radial-gradient(circle at 29% 11%, rgba(255, 209, 209, 0.54) 0 0.9px, transparent 1.5px),
+        radial-gradient(circle at 43% 87%, rgba(255, 248, 235, 0.62) 0 1px, transparent 1.6px),
+        radial-gradient(circle at 55% 42%, rgba(221, 211, 255, 0.56) 0 0.9px, transparent 1.5px),
+        radial-gradient(circle at 68% 93%, rgba(255, 248, 235, 0.58) 0 1px, transparent 1.6px),
+        radial-gradient(circle at 79% 25%, rgba(255, 209, 209, 0.5) 0 0.9px, transparent 1.5px),
+        radial-gradient(circle at 93% 57%, rgba(255, 248, 235, 0.64) 0 1px, transparent 1.6px);
+      animation: starPulse 6.8s ease-in-out infinite;
+    }
+
+    .star-field--near {
+      --parallax: 0.48;
+      opacity: 0.9;
+    }
+
+    .star-field--near::before {
+      background-image:
+        radial-gradient(circle at 8% 47%, rgba(255, 248, 235, 0.9) 0 1.5px, transparent 2.5px, transparent 8px, rgba(255, 209, 209, 0.16) 8.5px, transparent 11px),
+        radial-gradient(circle at 27% 7%, rgba(255, 248, 235, 0.82) 0 1.4px, transparent 2.3px),
+        radial-gradient(circle at 39% 95%, rgba(221, 211, 255, 0.74) 0 1.2px, transparent 2px),
+        radial-gradient(circle at 57% 33%, rgba(255, 248, 235, 0.84) 0 1.5px, transparent 2.4px),
+        radial-gradient(circle at 68% 61%, rgba(255, 209, 209, 0.76) 0 1.2px, transparent 2px),
+        radial-gradient(circle at 88% 18%, rgba(255, 248, 235, 0.86) 0 1.4px, transparent 2.3px),
+        radial-gradient(circle at 97% 73%, rgba(221, 211, 255, 0.7) 0 1.1px, transparent 1.9px);
+      animation: starPulseNear 5.6s ease-in-out infinite alternate;
+    }
+
+    .nebula {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(22px);
+      opacity: 0.42;
+      mix-blend-mode: screen;
+      transform: translate3d(
+        calc(var(--pointer-x) * 0.1),
+        calc(var(--pointer-y) * 0.1),
+        0
+      );
+      transition: transform 900ms cubic-bezier(0.2, 0.75, 0.25, 1);
+      will-change: transform;
+    }
+
+    .nebula--rose {
+      left: 54%;
+      top: 27%;
+      width: min(62vw, 900px);
+      height: min(42vw, 590px);
+      background: radial-gradient(ellipse, rgba(188, 104, 132, 0.24), rgba(104, 72, 138, 0.1) 40%, transparent 72%);
+      rotate: -18deg;
+    }
+
+    .nebula--blue {
+      left: 15%;
+      top: 53%;
+      width: min(58vw, 850px);
+      height: min(38vw, 520px);
+      background: radial-gradient(ellipse, rgba(62, 116, 141, 0.15), rgba(116, 87, 154, 0.09) 44%, transparent 72%);
+      rotate: 23deg;
+    }
+
+    .galaxy-system {
+      position: absolute;
+      left: 64%;
+      top: 49%;
+      width: min(98vw, 1380px);
+      aspect-ratio: 4 / 3;
+      transform: translate(-50%, -50%)
+        translate3d(
+          calc(var(--pointer-x) * 0.72),
+          calc(var(--pointer-y) * 0.72),
+          0
+        );
+      transition: transform 900ms cubic-bezier(0.2, 0.75, 0.25, 1);
+      will-change: transform;
+    }
+
+    .galaxy-art {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .galaxy-rotor {
+      transform-box: view-box;
+      transform-origin: 58.5% 51.5%;
+      animation: galaxyTurn 58s linear infinite;
+    }
+
+    .galaxy-arms {
+      transform-box: view-box;
+      transform-origin: 58.5% 51.5%;
+      animation: galaxyTurn 76s linear infinite reverse;
+    }
+
+    .orbit {
+      position: absolute;
+      left: 58.5%;
+      top: 51.5%;
+      border: 1px solid rgba(221, 211, 255, 0.18);
+      border-radius: 50%;
+      transform-origin: center;
+      box-shadow: 0 0 18px rgba(184, 169, 232, 0.04);
+    }
+
+    .orbit::before {
+      content: "";
+      position: absolute;
+      inset: 9%;
+      border: 1px solid rgba(239, 208, 162, 0.07);
+      border-radius: inherit;
+    }
+
+    .orbit--outer {
+      width: 68%;
+      aspect-ratio: 2.28;
+      margin-left: -34%;
+      margin-top: -14.9%;
+      animation: orbitOuter 30s linear infinite;
+    }
+
+    .orbit--inner {
+      width: 46%;
+      aspect-ratio: 1.92;
+      margin-left: -23%;
+      margin-top: -12%;
+      border-color: rgba(239, 208, 162, 0.15);
+      animation: orbitInner 21s linear infinite reverse;
+    }
+
+    .orbiting-light {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .orbiting-light::before {
+      content: "";
+      position: absolute;
+      inset: -8px;
+      border-radius: inherit;
+      background: currentColor;
+      opacity: 0.15;
+      filter: blur(6px);
+    }
+
+    .orbiting-light::after {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      border-radius: inherit;
+      background: currentColor;
+      box-shadow:
+        0 0 9px currentColor,
+        0 0 24px currentColor;
+    }
+
+    .orbiting-light--rose {
+      color: var(--rose-bright);
+    }
+
+    .orbiting-light--lavender {
+      color: var(--lavender-bright);
+    }
+
+    .topbar {
+      position: absolute;
+      top: max(1.35rem, env(safe-area-inset-top));
+      left: max(1.5rem, calc(env(safe-area-inset-left) + 1rem));
+      right: max(1.5rem, calc(env(safe-area-inset-right) + 1rem));
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .wordmark {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.68rem;
+      margin: 0;
+      color: var(--cream);
+      font-family: var(--serif);
+      font-size: 1.08rem;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .wordmark-mark {
+      position: relative;
+      display: grid;
+      width: 1.9rem;
+      aspect-ratio: 1;
+      place-items: center;
+      border: 1px solid rgba(239, 208, 162, 0.34);
+      border-radius: 50%;
+      color: var(--rose-bright);
+      font-size: 0.72rem;
+      font-style: italic;
+      box-shadow: inset 0 0 16px rgba(226, 166, 173, 0.08);
+    }
+
+    .wordmark-mark::after {
+      content: "";
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow:
+        0 -12px 0 rgba(239, 208, 162, 0.62),
+        11px 5px 0 rgba(221, 211, 255, 0.62),
+        -10px 6px 0 rgba(255, 209, 209, 0.62);
+    }
+
+    .motion-toggle {
+      min-height: 2.55rem;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      padding: 0.62rem 0.8rem;
+      border: 1px solid rgba(239, 208, 162, 0.24);
+      border-radius: 5px;
+      background: rgba(5, 9, 20, 0.62);
+      color: var(--cream-soft);
+      cursor: pointer;
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      transition: color 160ms ease, border-color 160ms ease, background-color 160ms ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .js .motion-toggle {
+      display: inline-flex;
+    }
+
+    .motion-toggle:hover {
+      border-color: rgba(239, 208, 162, 0.5);
+      background: rgba(13, 20, 37, 0.82);
+      color: var(--cream);
+    }
+
+    .motion-toggle:disabled {
+      cursor: default;
+      opacity: 0.66;
+    }
+
+    .motion-toggle:disabled .motion-icon {
+      display: none;
+    }
+
+    .motion-icon {
+      width: 0.9rem;
+      height: 0.9rem;
+      flex: 0 0 auto;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.6;
+    }
+
+    .motion-toggle[aria-pressed="false"] .motion-icon--play,
+    .motion-toggle[aria-pressed="true"] .motion-icon--pause {
+      display: none;
+    }
+
+    .motion-label {
+      font-size: 0.76rem;
+      letter-spacing: 0.04em;
+    }
+
+    .hero {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      width: min(100%, 1440px);
+      min-height: 100vh;
+      min-height: 100svh;
+      margin: 0 auto;
+      padding:
+        clamp(6.5rem, 12vh, 8rem)
+        clamp(1.5rem, 7vw, 7rem)
+        clamp(5.5rem, 10vh, 7rem);
+      align-items: flex-end;
+    }
+
+    .hero-copy {
+      width: min(100%, 38rem);
+      margin-bottom: clamp(0.25rem, 4vh, 3.75rem);
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin: 0 0 1.2rem;
+      color: var(--cream-soft);
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      line-height: 1.3;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 1.8rem;
+      height: 1px;
+      background: linear-gradient(90deg, var(--rose), rgba(226, 166, 173, 0));
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--cream);
+      font-family: var(--serif);
+      font-size: 7.15rem;
+      font-weight: 400;
+      letter-spacing: 0;
+      line-height: 0.86;
+      text-wrap: balance;
+      text-shadow:
+        0 2px 22px rgba(3, 6, 15, 0.8),
+        0 0 44px rgba(226, 166, 173, 0.08);
+    }
+
+    h1 span {
+      display: block;
+      color: var(--rose-bright);
+      font-style: italic;
+      padding-left: clamp(1rem, 5vw, 4.8rem);
+    }
+
+    .lede {
+      max-width: 31rem;
+      margin: clamp(1.45rem, 3vh, 2rem) 0 0;
+      color: var(--cream-soft);
+      font-family: var(--serif);
+      font-size: 1.24rem;
+      line-height: 1.55;
+      text-wrap: pretty;
+      text-shadow: 0 2px 18px rgba(3, 6, 15, 0.9);
+    }
+
+    .coda {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin: 1.4rem 0 0;
+      color: var(--cream-muted);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.17em;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+
+    .coda::before {
+      content: "";
+      width: 0.26rem;
+      height: 0.26rem;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 10px rgba(239, 208, 162, 0.72);
+      animation: codaPulse 3.6s ease-in-out infinite;
+    }
+
+    .footer-note {
+      position: absolute;
+      right: max(1.5rem, calc(env(safe-area-inset-right) + 1rem));
+      bottom: max(1.45rem, calc(env(safe-area-inset-bottom) + 1rem));
+      z-index: 14;
+      margin: 0;
+      color: rgba(216, 201, 185, 0.52);
+      font-family: var(--serif);
+      font-size: 0.78rem;
+      font-style: italic;
+      text-align: right;
+    }
+
+    .footer-line {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 6;
+      height: 24vh;
+      pointer-events: none;
+      opacity: 0.3;
+      background:
+        radial-gradient(ellipse at 39% 100%, rgba(226, 166, 173, 0.24), transparent 36%),
+        radial-gradient(ellipse at 70% 100%, rgba(184, 169, 232, 0.2), transparent 34%);
+      filter: blur(24px);
+    }
+
+    .is-paused .galaxy-rotor,
+    .is-paused .galaxy-arms,
+    .is-paused .orbit,
+    .is-paused .star-field::before,
+    .is-paused .star-field::after,
+    .is-paused .coda::before {
+      animation-play-state: paused !important;
+    }
+
+    .is-suspended .galaxy-rotor,
+    .is-suspended .galaxy-arms,
+    .is-suspended .orbit,
+    .is-suspended .star-field::before,
+    .is-suspended .star-field::after,
+    .is-suspended .coda::before {
+      animation-play-state: paused !important;
+    }
+
+    @keyframes galaxyTurn {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes orbitOuter {
+      from {
+        transform: rotate(-17deg);
+      }
+      to {
+        transform: rotate(343deg);
+      }
+    }
+
+    @keyframes orbitInner {
+      from {
+        transform: rotate(22deg);
+      }
+      to {
+        transform: rotate(382deg);
+      }
+    }
+
+    @keyframes starDriftFar {
+      from {
+        transform: translate3d(0, 0, 0);
+      }
+      to {
+        transform: translate3d(2.5%, -2%, 0);
+      }
+    }
+
+    @keyframes starDriftFarTwo {
+      from {
+        transform: translate3d(7%, 4%, 0);
+      }
+      to {
+        transform: translate3d(4%, 6%, 0);
+      }
+    }
+
+    @keyframes starDriftMid {
+      from {
+        transform: translate3d(-0.8%, 0.5%, 0);
+      }
+      to {
+        transform: translate3d(0.8%, -0.6%, 0);
+      }
+    }
+
+    @keyframes starPulse {
+      0%,
+      100% {
+        opacity: 0.55;
+      }
+      50% {
+        opacity: 0.88;
+      }
+    }
+
+    @keyframes starPulseNear {
+      from {
+        opacity: 0.66;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes codaPulse {
+      0%,
+      100% {
+        opacity: 0.55;
+        transform: scale(0.82);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.12);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nebula--rose {
+        left: 70%;
+        top: 33%;
+        width: 130vw;
+        height: 92vw;
+      }
+
+      .nebula--blue {
+        left: 18%;
+        top: 50%;
+        width: 118vw;
+        height: 78vw;
+      }
+
+      .galaxy-system {
+        left: 55%;
+        top: 40%;
+        width: 218vw;
+      }
+
+      .hero {
+        padding:
+          clamp(6.2rem, 13vh, 7.2rem)
+          max(1.5rem, calc(env(safe-area-inset-left) + 1.25rem))
+          max(5rem, calc(env(safe-area-inset-bottom) + 4.2rem));
+        align-items: flex-end;
+      }
+
+      .hero-copy {
+        margin-bottom: 0;
+      }
+
+      h1 {
+        font-size: 4.25rem;
+        line-height: 0.88;
+      }
+
+      h1 span {
+        padding-left: 0.75rem;
+      }
+
+      .lede {
+        max-width: 21rem;
+        font-size: 1.08rem;
+        line-height: 1.5;
+      }
+
+      .footer-note {
+        display: none;
+      }
+    }
+
+    @media (min-width: 481px) and (max-width: 760px) {
+      h1 {
+        font-size: 5.35rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .topbar {
+        left: max(0.9rem, env(safe-area-inset-left));
+        right: max(0.9rem, env(safe-area-inset-right));
+        gap: 0.6rem;
+      }
+
+      .wordmark {
+        gap: 0.45rem;
+        font-size: 0.92rem;
+      }
+
+      .wordmark-mark {
+        width: 1.65rem;
+      }
+
+      .motion-toggle {
+        gap: 0.42rem;
+        padding-inline: 0.62rem;
+      }
+
+      .motion-label {
+        font-size: 0.7rem;
+      }
+    }
+
+    @media (max-height: 700px) and (min-width: 761px) {
+      .hero {
+        padding-top: 5.5rem;
+        padding-bottom: 4.2rem;
+      }
+
+      .hero-copy {
+        margin-bottom: 0;
+      }
+
+      .lede {
+        margin-top: 1.2rem;
+      }
+
+      .coda {
+        margin-top: 0.9rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+
+      .star-field,
+      .nebula,
+      .galaxy-system {
+        transition: none;
+      }
+
+      .star-field,
+      .nebula {
+        transform: none;
+      }
+
+      .galaxy-system {
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    @media (forced-colors: active) {
+      .motion-toggle {
+        border-color: ButtonText;
+      }
+
+      .galaxy-system,
+      .ambient {
+        forced-color-adjust: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to the announcement</a>
+
+  <div class="experience">
+    <div class="ambient" aria-hidden="true">
+      <div class="star-field star-field--far"></div>
+      <div class="star-field star-field--mid"></div>
+      <div class="star-field star-field--near"></div>
+      <div class="nebula nebula--rose"></div>
+      <div class="nebula nebula--blue"></div>
+
+      <div class="galaxy-system">
+        <svg class="galaxy-art" viewBox="0 0 1200 900" fill="none">
+          <defs>
+            <radialGradient id="coreGlow">
+              <stop offset="0" stop-color="#fff8eb" stop-opacity="0.96"/>
+              <stop offset="0.12" stop-color="#f7d7ba" stop-opacity="0.68"/>
+              <stop offset="0.38" stop-color="#d99da9" stop-opacity="0.22"/>
+              <stop offset="1" stop-color="#8b76ba" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="violetGlow">
+              <stop offset="0" stop-color="#d4c4ff" stop-opacity="0.2"/>
+              <stop offset="1" stop-color="#6d70ae" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="armRose" x1="215" y1="281" x2="922" y2="686" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#d9cfff" stop-opacity="0.04"/>
+              <stop offset="0.42" stop-color="#e6aab4" stop-opacity="0.72"/>
+              <stop offset="0.7" stop-color="#efd1ac" stop-opacity="0.64"/>
+              <stop offset="1" stop-color="#bca9ed" stop-opacity="0.06"/>
+            </linearGradient>
+            <linearGradient id="armPearl" x1="295" y1="674" x2="890" y2="292" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#a8b9f4" stop-opacity="0.03"/>
+              <stop offset="0.48" stop-color="#beb0ed" stop-opacity="0.5"/>
+              <stop offset="0.8" stop-color="#f0d0b7" stop-opacity="0.32"/>
+              <stop offset="1" stop-color="#f4ddca" stop-opacity="0.02"/>
+            </linearGradient>
+            <filter id="wideGlow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="22"/>
+            </filter>
+            <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+              <feGaussianBlur stdDeviation="5"/>
+            </filter>
+            <filter id="tinyGlow" x="-200%" y="-200%" width="400%" height="400%">
+              <feGaussianBlur stdDeviation="2.5"/>
+            </filter>
+          </defs>
+
+          <ellipse cx="704" cy="463" rx="488" ry="292" fill="url(#violetGlow)" opacity="0.58"/>
+          <ellipse cx="704" cy="463" rx="290" ry="160" fill="url(#coreGlow)" opacity="0.35"/>
+
+          <g class="galaxy-arms" opacity="0.78">
+            <path
+              d="M704 463C754 430 829 405 904 418C984 432 1027 486 1004 539C979 598 887 621 813 595C733 567 706 493 741 438C780 377 875 359 943 394C1015 431 1033 503 1001 558"
+              stroke="url(#armRose)"
+              stroke-width="44"
+              stroke-linecap="round"
+              filter="url(#wideGlow)"
+              opacity="0.68"
+            />
+            <path
+              d="M704 463C646 485 569 504 499 475C423 444 402 375 442 327C485 275 573 272 638 315C706 359 713 435 668 483C620 534 527 530 475 488C415 439 425 363 474 321"
+              stroke="url(#armPearl)"
+              stroke-width="34"
+              stroke-linecap="round"
+              filter="url(#wideGlow)"
+              opacity="0.54"
+            />
+            <path
+              d="M704 463C745 436 812 413 875 427C933 440 965 485 947 526C928 570 864 587 810 569C747 548 726 486 752 445C779 401 846 385 897 411C950 438 960 497 936 537"
+              stroke="url(#armRose)"
+              stroke-width="3.2"
+              stroke-linecap="round"
+              filter="url(#softGlow)"
+              opacity="0.82"
+            />
+            <path
+              d="M704 463C663 479 604 493 551 470C495 446 480 392 509 355C541 317 608 314 658 348C710 383 715 443 680 478C643 515 571 511 532 480C489 446 497 389 535 355"
+              stroke="url(#armPearl)"
+              stroke-width="2.3"
+              stroke-linecap="round"
+              filter="url(#softGlow)"
+              opacity="0.75"
+            />
+          </g>
+
+          <g class="galaxy-rotor">
+            <ellipse cx="704" cy="463" rx="414" ry="156" stroke="#e2b5c7" stroke-opacity="0.1" stroke-width="1.1" transform="rotate(-16 704 463)"/>
+            <ellipse cx="704" cy="463" rx="328" ry="118" stroke="#d9cefb" stroke-opacity="0.09" stroke-width="1" transform="rotate(-16 704 463)"/>
+            <path
+              d="M704 463C770 423 852 424 910 463C966 502 969 568 924 607C874 650 784 638 735 586C681 528 689 442 743 391C802 335 900 337 960 388"
+              stroke="#f3d7c0"
+              stroke-opacity="0.16"
+              stroke-width="1"
+            />
+
+            <g fill="#fff3dd">
+              <circle cx="790" cy="429" r="2.5" opacity="0.88"/>
+              <circle cx="845" cy="414" r="1.3" opacity="0.68"/>
+              <circle cx="897" cy="443" r="2" opacity="0.76"/>
+              <circle cx="934" cy="495" r="1.2" opacity="0.62"/>
+              <circle cx="938" cy="546" r="2.2" opacity="0.74"/>
+              <circle cx="897" cy="591" r="1.4" opacity="0.58"/>
+              <circle cx="833" cy="608" r="1.8" opacity="0.7"/>
+              <circle cx="773" cy="591" r="1.2" opacity="0.54"/>
+              <circle cx="733" cy="548" r="2.1" opacity="0.75"/>
+              <circle cx="620" cy="478" r="2" opacity="0.72"/>
+              <circle cx="568" cy="456" r="1.2" opacity="0.58"/>
+              <circle cx="515" cy="418" r="1.8" opacity="0.7"/>
+              <circle cx="483" cy="363" r="1.3" opacity="0.56"/>
+              <circle cx="499" cy="312" r="2.2" opacity="0.74"/>
+              <circle cx="549" cy="289" r="1.2" opacity="0.58"/>
+              <circle cx="606" cy="302" r="1.7" opacity="0.7"/>
+              <circle cx="653" cy="334" r="1.2" opacity="0.56"/>
+            </g>
+
+            <g fill="#d9cefb">
+              <circle cx="826" cy="441" r="1.5" opacity="0.72"/>
+              <circle cx="881" cy="463" r="2.2" opacity="0.78"/>
+              <circle cx="910" cy="528" r="1.2" opacity="0.6"/>
+              <circle cx="868" cy="575" r="1.7" opacity="0.7"/>
+              <circle cx="801" cy="568" r="1.2" opacity="0.58"/>
+              <circle cx="757" cy="514" r="1.5" opacity="0.7"/>
+              <circle cx="594" cy="479" r="1.4" opacity="0.64"/>
+              <circle cx="543" cy="454" r="2.1" opacity="0.76"/>
+              <circle cx="510" cy="394" r="1.2" opacity="0.58"/>
+              <circle cx="536" cy="335" r="1.7" opacity="0.7"/>
+              <circle cx="591" cy="318" r="1.2" opacity="0.56"/>
+              <circle cx="641" cy="348" r="1.4" opacity="0.64"/>
+            </g>
+
+            <g fill="#f6bfc5">
+              <circle cx="854" cy="426" r="1" opacity="0.66"/>
+              <circle cx="918" cy="473" r="1.5" opacity="0.74"/>
+              <circle cx="930" cy="537" r="1" opacity="0.6"/>
+              <circle cx="893" cy="583" r="1.4" opacity="0.7"/>
+              <circle cx="811" cy="603" r="1" opacity="0.6"/>
+              <circle cx="744" cy="503" r="1.5" opacity="0.7"/>
+              <circle cx="714" cy="454" r="1" opacity="0.62"/>
+              <circle cx="565" cy="485" r="1.3" opacity="0.66"/>
+              <circle cx="494" cy="443" r="1" opacity="0.58"/>
+              <circle cx="506" cy="349" r="1.4" opacity="0.7"/>
+              <circle cx="558" cy="298" r="1" opacity="0.58"/>
+              <circle cx="632" cy="312" r="1.3" opacity="0.68"/>
+            </g>
+          </g>
+
+          <circle cx="704" cy="463" r="78" fill="url(#coreGlow)" filter="url(#softGlow)" opacity="0.78"/>
+          <circle cx="704" cy="463" r="35" fill="#fff5e6" opacity="0.36" filter="url(#softGlow)"/>
+          <circle cx="704" cy="463" r="5.5" fill="#fff8eb" opacity="0.92" filter="url(#tinyGlow)"/>
+        </svg>
+
+        <div class="orbit orbit--outer">
+          <span class="orbiting-light orbiting-light--rose"></span>
+        </div>
+        <div class="orbit orbit--inner">
+          <span class="orbiting-light orbiting-light--lavender"></span>
+        </div>
+      </div>
+    </div>
+
+    <header class="topbar">
+      <p class="wordmark">
+        <span class="wordmark-mark" aria-hidden="true">M</span>
+        <span>Maxabel Forever</span>
+      </p>
+      <button
+        class="motion-toggle"
+        id="motion-toggle"
+        type="button"
+        aria-pressed="false"
+      >
+        <svg class="motion-icon motion-icon--pause" viewBox="0 0 16 16" aria-hidden="true">
+          <path d="M5.25 3.25v9.5M10.75 3.25v9.5"/>
+        </svg>
+        <svg class="motion-icon motion-icon--play" viewBox="0 0 16 16" aria-hidden="true">
+          <path d="M5.2 3.35v9.3l7.2-4.65-7.2-4.65Z"/>
+        </svg>
+        <span class="motion-label">Pause motion</span>
+      </button>
+    </header>
+
+    <main class="hero" id="main" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Coming soon</p>
+        <h1 id="page-title">Maxabel <span>Forever</span></h1>
+        <p class="lede">
+          A quiet place for the moments we keep close is taking shape beneath the same stars.
+        </p>
+        <p class="coda">Made of moments, kept in starlight</p>
+      </div>
+    </main>
+
+    <p class="footer-note" aria-hidden="true">Some stories find their own orbit.</p>
+    <div class="footer-line" aria-hidden="true"></div>
+  </div>
+
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const body = document.body;
+      const toggle = document.getElementById("motion-toggle");
+      const label = toggle.querySelector(".motion-label");
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+      const finePointer = window.matchMedia("(pointer: fine)");
+      let userPaused = false;
+      let frame = 0;
+      let nextX = 0;
+      let nextY = 0;
+
+      function isMotionPaused() {
+        return userPaused || reduceMotion.matches;
+      }
+
+      function updateControl() {
+        const reduced = reduceMotion.matches;
+        const paused = isMotionPaused();
+        body.classList.toggle("is-paused", paused);
+        toggle.disabled = reduced;
+        toggle.setAttribute("aria-pressed", String(paused));
+        toggle.setAttribute("aria-label", reduced ? "Motion is reduced by your device settings" : paused ? "Resume motion" : "Pause motion");
+        label.textContent = reduced ? "Motion reduced" : paused ? "Resume motion" : "Pause motion";
+      }
+
+      function setPointerOrigin() {
+        nextX = 0;
+        nextY = 0;
+        root.style.setProperty("--pointer-x", "0px");
+        root.style.setProperty("--pointer-y", "0px");
+      }
+
+      function schedulePointerFrame() {
+        if (frame) return;
+        frame = window.requestAnimationFrame(() => {
+          frame = 0;
+          root.style.setProperty("--pointer-x", `${nextX.toFixed(2)}px`);
+          root.style.setProperty("--pointer-y", `${nextY.toFixed(2)}px`);
+        });
+      }
+
+      toggle.addEventListener("click", () => {
+        if (reduceMotion.matches) return;
+        userPaused = !userPaused;
+        if (userPaused) setPointerOrigin();
+        updateControl();
+      });
+
+      window.addEventListener("pointermove", (event) => {
+        if (isMotionPaused() || !finePointer.matches || document.hidden) return;
+        nextX = ((event.clientX / Math.max(window.innerWidth, 1)) - 0.5) * 24;
+        nextY = ((event.clientY / Math.max(window.innerHeight, 1)) - 0.5) * 18;
+        schedulePointerFrame();
+      }, { passive: true });
+
+      document.documentElement.addEventListener("pointerleave", () => {
+        if (!isMotionPaused()) setPointerOrigin();
+      });
+
+      document.addEventListener("visibilitychange", () => {
+        body.classList.toggle("is-suspended", document.hidden);
+        if (document.hidden) {
+          if (frame) {
+            window.cancelAnimationFrame(frame);
+            frame = 0;
+          }
+          setPointerOrigin();
+        }
+      });
+
+      reduceMotion.addEventListener?.("change", () => {
+        if (reduceMotion.matches) setPointerOrigin();
+        updateControl();
+      });
+
+      updateControl();
+    })();
+  </script>
+</body>
+</html>
